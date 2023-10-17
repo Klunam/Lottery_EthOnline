@@ -5,10 +5,6 @@ import "@chainlink/contracts/src/v0.8/automation/AutomationCompatible.sol";
 
 
 contract Lottery is AutomationCompatibleInterface  {
-    // Event declarations
-    //event LotteryEntered(address indexed participant, uint amount);
-
-
 
     // state variables:
     address public owner;
@@ -70,16 +66,6 @@ contract Lottery is AutomationCompatibleInterface  {
     }
    }
 
-
-
-    // function for not waiting the 1week THIS IS ONLY FOR TESTING PURPOSES:
-     /*function setLotteryEndTime(uint newEndTime) public onlyowner {
-        lotteryEndTime = newEndTime;
-     }*/
-
-
-
-
     // Get lotteryEndTime in readable numbers
     function getTimeLeft() public view returns (uint daysLeft, uint hoursLeft, uint minutesLeft) {
         uint timeRemaining = lotteryEndTime - block.timestamp;
@@ -109,49 +95,10 @@ contract Lottery is AutomationCompatibleInterface  {
 
         // address of player entering lottery
         players.push(payable(msg.sender));
-
-        // Emit the LotteryEntered event
-        //emit LotteryEntered(msg.sender, msg.value);
-
-
     }
 
     function getRandomNumber() public view returns (uint) {
         return uint(keccak256(abi.encodePacked(owner, block.timestamp)));
     }
 
-    /*
-    This pickWinner() function has the endTime modifier
-    which allows to pick the winner after the lottery ends
-    */
-    /*function pickWinner() external onlyowner endTime {
-        uint index = getRandomNumber() % players.length;
-        players[index].transfer(address(this).balance); 
-        lotteryHistory[lotteryId] = players[index];
-        lotteryId++;
-
-        // reset the state of the contract
-        players = new address payable[](0);
-
-    }*/
-
-     /*automatically reset the contract for the next round at a predefined interval,
-      you can add a reset function that can only be triggered after a specified duration:
-     */
-   /* function resetLottery() public //onlyowner {
-    //require(block.timestamp > lotteryEndTime + 1 weeks, "Time not elapsed for reset");
-
-     
-    }*/
-    // Modifier 1.
-   /* modifier onlyowner() {
-      require(msg.sender == owner);
-      _;
-    }
-
-    // Modifier 2.
-    modifier endTime() {
-        require(block.timestamp > lotteryEndTime, "Lottery period has not ended yet");
-        _;
-    }*/
 }
