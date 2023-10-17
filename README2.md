@@ -1,11 +1,10 @@
 # Lottery Smartcontract
 
-This is a  lottery smart-contract that allows for users to enter, win, check lottery histoy, get winner by lottery, & receive
-the lottery pot.
+This is a lottery smart contract that allows users to participate, win, review lottery history, check winners by lottery, and claim the lottery prize.
+
 
 # Chainlink implemantation:
 
-I've used chainlink VRF & Automation so the contract checks if there is enought players to enter the lottery & after a certin time period(intervals)
-the contract automatically sends the funds to the winner after certain time is passed and uses Chainlink VRR randomness for fairness.
-Starts a new lottery with new players already predetermined. There is no need for the deployer to manually call the function to pick a winner & start a
-new lottery thanks to Chainlink automation.
+I've integrated Chainlink VRF and Automation functionalities into the contract. It ensures that there are enough players participating in the lottery before it commences. 
+After a specific interval, the contract automatically distributes the winnings to the chosen winner. Additionally, the use of Chainlink VRF ensures a fair and transparent random selection process. 
+The contract initiates a new lottery with a fresh set of predetermined players. Thanks to Chainlink's automation, there is no need for manual intervention from the deployer to select a winner and start a new lottery.
