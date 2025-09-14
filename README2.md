@@ -1,4 +1,4 @@
-# Lottery Smartcontract
+# SmartContract Lottery
 
 This is a lottery smart contract that allows users to participate, win, review lottery history, check winners by lottery, and claim the lottery prize.
 
